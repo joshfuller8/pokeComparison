@@ -13,8 +13,8 @@ app.get('/', (req, res) => {
 app.post('/compare', async (req, res) => {
     try {
         const { pokemon1, pokemon2 } = req.body;
-        const poke1 = await getPokemonData(pokemon1);
-        const poke2 = await getPokemonData(pokemon2);
+        let poke1 = await getPokemonData(pokemon1.toLowerCase());
+        let poke2 = await getPokemonData(pokemon2.toLowerCase());
 
         // Check if either Pokémon data is null and render an error message if so
         if (!poke1 || !poke2) {
